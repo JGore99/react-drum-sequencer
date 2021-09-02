@@ -85,10 +85,12 @@ export default class DrumMachineTopLevel extends React.Component {
               <SoundButton sound={sound} />
             ))}
           </div>
-          <div className="measure">
-            {this.state.measureGrid.map((measure) => (
-              <MeasureButton measure={measure} />
-            ))}
+          <div className="measureRow">
+            {this.state.measureGrid.map(({ measureRow }, i) =>
+              measureRow.map(({ measure }, j) => (
+                <MeasureButton key={j} measure={measure} />
+              ))
+            )}
           </div>
         </div>
       </div>
