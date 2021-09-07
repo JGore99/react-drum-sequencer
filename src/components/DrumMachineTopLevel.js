@@ -18,8 +18,8 @@ export default class DrumMachineTopLevel extends React.Component {
     ],
 
     measureGrid: [
-      { row: { "01": false, "02": false, "03": false } },
-      { row: { "01": false, "02": false, "03": false } },
+      { row: [{ "01": false, "02": false, "03": false }] },
+      { row: [{ "01": false, "02": false, "03": false }] },
     ],
   };
 
@@ -34,9 +34,15 @@ export default class DrumMachineTopLevel extends React.Component {
             ))}
           </div>
           <div className="measureRow">
-            {this.state.measureGrid.map((row) =>
-              row.map((measure) => <MeasureButton measure={measure} />)
-            )}
+            {this.state.measureGrid.map((rows, index) => (
+              <div key={index}>
+                {rows.row.map((measure, i) => (
+                  <div>
+                    <MeasureButton measure={measure} i={i} />
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>

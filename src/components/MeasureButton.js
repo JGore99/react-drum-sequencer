@@ -1,12 +1,12 @@
 import React from "react";
 
 const MeasureButton = (props) => {
-  //const { measure } = props.measure;
+  //const { measure, i } = props.measure;
 
   return (
     <button
-      //key={props.measure}
-      //value={props.measure}
+      key={props.i}
+      value={props.measure}
       onClick={(e) => console.log(props.measure)}
     ></button>
   );
